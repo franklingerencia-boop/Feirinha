@@ -33,9 +33,9 @@ export function useData<T>(loader: () => Promise<T>, deps: unknown[]) {
 }
 
 /** Lança o erro do Supabase (para usar com useData/try-catch). */
-export function must<T>(res: { data: T | null; error: unknown }): T {
+export function must<T>(res: { data: T; error: unknown }): NonNullable<T> {
   if (res.error) throw res.error;
-  return res.data as T;
+  return res.data as NonNullable<T>;
 }
 
 /** Gera uma chave única para evitar operações duplicadas em cliques repetidos. */

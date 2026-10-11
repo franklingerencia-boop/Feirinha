@@ -12,6 +12,12 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
+    rules: {
+      // Respostas JSON das funções do banco são tipadas de forma flexível nas telas
+      "@typescript-eslint/no-explicit-any": "warn",
+    },
+  },
+  {
     ignores: [
       "node_modules/**",
       ".next/**",
