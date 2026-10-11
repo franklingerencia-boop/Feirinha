@@ -172,7 +172,9 @@ export function AppShell({ children }: { children: ReactNode }) {
         )}
       </ul>
       <div className="border-t border-line pt-2">
-        <p className="truncate px-3 text-xs text-muted">{user?.email}</p>
+        <Link href="/app/conta" className="block truncate rounded-lg px-3 py-1 text-xs text-muted hover:bg-brand-50" title="Minha conta">
+          {user?.email}
+        </Link>
         <button onClick={signOut} className="mt-1 flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold text-muted hover:bg-brand-50">
           <LogOut className="h-5 w-5" />
           Sair
