@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Identidade visual: tons de feira (terracota, folha, creme) com bom contraste. */
+@theme {
+  --color-brand-50: #fff4ec;
+  --color-brand-100: #ffe3cc;
+  --color-brand-200: #ffc499;
+  --color-brand-300: #ff9d5c;
+  --color-brand-400: #f77b2d;
+  --color-brand-500: #e2600f;
+  --color-brand-600: #c24e08;
+  --color-brand-700: #9a3d09;
+  --color-brand-800: #7a320d;
+  --color-leaf-50: #eefbf1;
+  --color-leaf-100: #d6f5de;
+  --color-leaf-500: #2f9e44;
+  --color-leaf-600: #237a35;
+  --color-leaf-700: #1d622c;
+  --color-cream: #fdf8f1;
+  --color-ink: #2a211b;
+  --color-muted: #6b5d52;
+  --color-line: #eadfd3;
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Foco visível para navegação por teclado */
+:focus-visible {
+  outline: 3px solid var(--color-brand-400);
+  outline-offset: 2px;
+}
+
+dialog::backdrop {
+  background: rgb(42 33 27 / 0.45);
+}
+
+dialog[open] {
+  animation: pop 0.12s ease-out;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Padrão de toldo listrado usado no cabeçalho */
+.awning {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-brand-500) 0 22px,
+    #fff 22px 44px
+  );
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
