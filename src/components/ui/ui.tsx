@@ -110,13 +110,26 @@ export function Field({
   htmlFor?: string;
   required?: boolean;
 }) {
+  const text = (
+    <span className="text-sm font-semibold text-ink">
+      {label}
+      {required && <span className="text-brand-600"> *</span>}
+    </span>
+  );
   return (
     <div className={cx("flex flex-col gap-1", className)}>
-      <label htmlFor={htmlFor} className="text-sm font-semibold text-ink">
-        {label}
-        {required && <span className="text-brand-600"> *</span>}
-      </label>
-      {children}
+      {htmlFor ? (
+        <>
+          <label htmlFor={htmlFor}>{text}</label>
+          {children}
+        </>
+      ) : (
+        // Rótulo envolvendo o campo: associação implícita para leitores de tela
+        <label className="flex flex-col gap-1">
+          {text}
+          {children}
+        </label>
+      )}
       {hint && !error && <p className="text-xs text-muted">{hint}</p>}
       {error && (
         <p className="text-xs font-medium text-red-700" role="alert">
@@ -184,7 +197,7 @@ export function MoneyInput({
   }, [value]);
   return (
     <div className={cx("relative", className)}>
-      <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted">R$</span>
+      <span aria-hidden className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted">R$</span>
       <input
         id={id}
         inputMode="decimal"

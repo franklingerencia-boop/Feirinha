@@ -59,8 +59,8 @@ export function MapTab({ b, reload }: { b: EventBundle; reload: () => void }) {
   };
 
   return (
-    <div className="grid gap-4 xl:grid-cols-[1fr_320px]">
-      <div className="space-y-3">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-4 xl:grid-cols-[minmax(0,1fr)_320px]">
+      <div className="min-w-0 space-y-3">
         <div className="flex flex-wrap items-end justify-between gap-2">
           <Field label="Dia">
             <Select value={dayId} onChange={(e) => setDayId(e.target.value)}>

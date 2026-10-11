@@ -184,7 +184,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   );
 
   return (
-    <div className="min-h-dvh lg:pl-72">
+    <div className="min-h-dvh overflow-x-clip lg:pl-72">
       <div className="awning no-print h-2 w-full" aria-hidden />
       <aside className="no-print fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-line bg-cream lg:block">{sidebar}</aside>
 
@@ -213,7 +213,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           AMBIENTE DE DEMONSTRAÇÃO — os dados desta empresa são fictícios
         </div>
       )}
-      <main className="mx-auto w-full max-w-7xl px-4 py-5 sm:px-6">{children}</main>
+      <main className="mx-auto w-full min-w-0 max-w-7xl px-4 py-5 sm:px-6">{children}</main>
     </div>
   );
 }
